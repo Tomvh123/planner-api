@@ -10,7 +10,7 @@ const CustomerSchema = new Schema({
         type: String,
         required: true
     },
-    addres: {
+    address: {
         type: String,
         required: true
     },
@@ -32,12 +32,12 @@ const Customer = mongoose.model('customer', CustomerSchema);
 
 Customer.count({}, function (err, count) {
 
-    if(count < 5){
+    if(count < 2){
         console.log('voeg customer toe');
         const customer = new Customer({
             firstName: 'Tom',
             lastName: 'van Haaster',
-            addres: 'Geerkade 15',
+            address: 'Geerkade 15',
             phoneNumber: '061234567',
             postalCode: '4871CK',
             email: 'soldier76@hotmail.com'
