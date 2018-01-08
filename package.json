@@ -16,6 +16,7 @@
     "moment": "^2.18.1",
     "mongoose": "^4.13.5",
     "mongoose-deep-populate": "^3.0.0",
+    "mongoose-relationship": "^0.1.5",
     "morgan": "^1.8.1",
     "neo4j-driver": "^1.5.1"
   },
