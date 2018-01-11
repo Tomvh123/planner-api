@@ -26,7 +26,6 @@ routes.get('/customers/:email', function(req, res) {
 
 routes.post('/customers', function(req, res) {
     const customerProps = req.body;
-
     customer.create(customerProps)
         .then((customer) => {
         res.status(200).send(customer)
