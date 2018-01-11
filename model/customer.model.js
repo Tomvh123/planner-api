@@ -13,8 +13,12 @@ const CustomerSchema = new Schema({
         type: String,
         required: true
     },
-    address: {
+    streetName: {
         type: String,
+        required: true
+    },
+    houseNumber: {
+        type: Number,
         required: true
     },
     phoneNumber: {
@@ -27,7 +31,8 @@ const CustomerSchema = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
 });
 
@@ -38,17 +43,18 @@ Customer.count({}, function (err, count) {
         const customer = new Customer({
             firstName: 'Tom',
             lastName: 'van Haaster',
-            address: 'Geerkade 15',
+            streetName: 'Geerkade',
+            houseNumber: '15',
             phoneNumber: '061234567',
             postalCode: '4871CK',
             email: 'soldier76@hotmail.com'
         });
         customer.save();
-        const sporthal = new Sporthall({
+        /*const sporthal = new Sporthall({
             sportHallId: '1'
         });
         sporthal.customers.push(customer);
-        sporthal.save();
+        sporthal.save();*/
 
 
     }

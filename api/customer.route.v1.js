@@ -14,11 +14,10 @@ routes.get('/customers', function(req, res) {
         .catch((error) => res.status(400).json(error));
 });
 
-routes.get('/customers/:id', function(req, res) {
+routes.get('/customers/:email', function(req, res) {
     res.contentType('application/json');
-    const id = req.param('id');
-    console.log(id);
-    customer.findOne({_id: id})
+    const email = req.param('email');
+    customer.findOne({email: email})
         .then((customer) => {
             res.status(200).send(customer);
         })
