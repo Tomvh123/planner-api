@@ -5,6 +5,7 @@ let logger = require('morgan');
 let config = require('./config/env/env');
 let customerroutev1 = require('./api/customer.route.v1');
 let sporthallroutev1 = require('./api/sporthall.route.v1');
+let staffroutev1 = require('./api/staff.route.v1');
 
 let app = express();
 
@@ -32,6 +33,7 @@ app.use(function (req, res, next) {
 
 app.use('/api/v1', customerroutev1);
 app.use('/api/v1', sporthallroutev1);
+app.use('/api/v1', staffroutev1);
 
 app.use(function (err, req, res, next) {
     // console.dir(err);
