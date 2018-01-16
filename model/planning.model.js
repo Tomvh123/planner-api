@@ -11,6 +11,10 @@ const PlanningSchema = new Schema({
         required: true
     },
     planning: [{
+        date: {
+            type: Date,
+            required: true
+        },
         startTime: {
             type: Date,
             required: true
@@ -30,6 +34,6 @@ const PlanningSchema = new Schema({
     }]
 });
 
-const Customer = mongoose.model('customer', PlanningSchema);
+const Planning = mongoose.model('planning', PlanningSchema);
 
-module.exports = Customer;
+module.exports = Planning;
