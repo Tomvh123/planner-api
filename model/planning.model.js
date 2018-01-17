@@ -7,8 +7,8 @@ const Staff = require('./staff.model');
 
 const PlanningSchema = new Schema({
     sportHallId:{
-        type: int,
-        required: true
+        type: Schema.Types.ObjectId,
+        ref: 'sporthall'
     },
     planning: [{
         date: {

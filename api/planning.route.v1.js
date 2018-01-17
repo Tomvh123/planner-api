@@ -15,18 +15,28 @@ routes.get('/planningen', function(req, res) {
         .catch((error) => res.status(400).json(error));
 });
 
-//routes.get('/planningen/:email/:date/:sporthallId', function(req, res) {
-  //  res.contentType('application/json');
-  //  const email = req.param('email');
-  //  const date = req.param('date');
-  //  cosnt sporthallId = req.param('sporthallId');
-  //  planning.find({sporthallId: sporthallId})
-  //      .where
-  //      .then((planning) => {
-  //          res.status(200).send(planning);
-  //      })
-  //      .catch((error) => res.status(400).json(error));
-//});
+routes.get('/planningen/:email/:date/:sporthallId', function(req, res) {
+   res.contentType('application/json');
+   const email = req.param('email');
+   const date = req.param('date');
+   const datetime = new Date(date);
+   const sporthallId = req.param('sporthallId');
+   let planningsArray = [];
+   planning.findOne({sporthallId: sporthallId})
+       .then((planning) => {
+           planning.planning.forEach(plan => {
+               if(plan.email === email &&
+                   plan.date.getDate() === datetime.getDate() &&
+                   plan.date.getMonth() === datetime.getMonth() &&
+                   plan.date.getYear() === datetime.getYear()){
+                   planningsArray.push(plan)
+               }
+           });
+           planning.planning = planningsArray;
+           res.status(200).send(planning);
+       })
+       .catch((error) => res.status(400).json(error));
+});
 
 routes.post('/planningen', function(req, res) {
     const planningProps = req.body;
