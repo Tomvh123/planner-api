@@ -7,7 +7,7 @@ const Staff = require('./staff.model');
 
 const PlanningSchema = new Schema({
     sportHallId:{
-        type: int,
+        type: Number,
         required: true
     },
     planning: [{
