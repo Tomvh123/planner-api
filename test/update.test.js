@@ -1,34 +1,33 @@
 const assert = require('assert');
-const CustomerSchema = require('../model/customer.model');
+const Customer = require('../model/customer.model');
 
 
 describe('Reading customers out of the database', () => {
     let customer;
 
-    beforeEach = ((done) => {
-        const customer = new CustomerSchema({firstName: 'Tom', lastName: 'Bassie', streetName: 'description', houseNumber: '25', postalCode: '4875CK', email: 'soldier76@hotmail.com' });
+    beforeEach((done) => {
+        customer = new Customer({firstName: 'Tom', lastName: 'Bassie', streetName: 'description', houseNumber: 25, phoneNumber: '0654787447', postalCode: '4875CK', email: 'test123@hotmail.com' });
         customer.save()
-            .then(() => done());
+            .then(() => done() );
+
 
     });
 
     function assertName(operation, done) {
         operation
-            .then(() => CustomerSchema.find({}))
-            .then((customers) => {
-                assert(customers.length === 1);
-                assert(customers[0].firstName === '');
+            .then(() => Customer.find({}))
+            .then((customer) => {
+                assert(customer.length === 1);
+                assert(customer[0].firstName === 'Tom');
+                done();
             });
-        done();
     }
 
 
-    it('Find a record with an Id and update', (done) => {
-        console.log();
+    it('A model class can find a record with an Id and update', (done) => {
         assertName(
-            CustomerSchema.findByIdAndUpdate(customer._id, { firstName: 'Harry' }),
+            Customer.findByIdAndUpdate(customer._id, { name: 'Test1' }),
             done
         );
-
     });
 });

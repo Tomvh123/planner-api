@@ -5,9 +5,16 @@ const Customer = require('../model/customer.model');
 describe('Reading customers out of the database', () => {
     let customer;
 
-    beforeEach = ((done) => {
-        const customer = new Customer({firstName: 'Test', lastName: 'Bassie', streetName: 'description', houseNumber: '25', postalCode: '4875CK', email: 'soldier76@hotmail.com' });
-
+     beforeEach((done) => {
+        const customer = new Customer({
+            firstName: 'Test',
+            lastName: 'Bassie',
+            streetName: 'description',
+            phoneNumber: '0654445447',
+            houseNumber: '25',
+            postalCode: '4875CK',
+            email: 'soldier76@hotmail.com'
+        });
         customer.save()
             .then(() => done());
 
@@ -17,7 +24,6 @@ describe('Reading customers out of the database', () => {
         console.log(customer);
         Customer.find({email: 'soldier76@hotmail.com'})
             .then((customers) => {
-                console.log(customers),
                     assert(customers[0]._id.toString() === customer._id.toString());
             });
         done();
