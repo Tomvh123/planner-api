@@ -10,28 +10,26 @@ const PlanningSchema = new Schema({
         type: Number,
         required: true
     },
-    planning: [{
-        date: {
-            type: Date,
-            required: true
-        },
-        startTime: {
-            type: Date,
-            required: true
-        },
-        endTime: {
-            type: Date,
-            required: true
-        },
-        staff:{
-            type: Schema.Types.ObjectId,
-            ref: 'staff'
-        },
-        job:{
-            type: String,
-            required: true
-        }
-    }]
+    date: {
+        type: Date,
+        required: true
+    },
+    startTime: {
+        type: Date,
+        required: true
+    },
+    endTime: {
+        type: Date,
+        required: true
+    },
+    staff:{
+        type: Schema.Types.ObjectId,
+        ref: 'staff'
+    },
+    job:{
+        type: String,
+        required: true
+    }
 });
 
 const Planning = mongoose.model('planning', PlanningSchema);

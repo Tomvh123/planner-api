@@ -5,11 +5,7 @@ const SporthallSchema = new Schema({
     sportHallId: {
         type: String,
         required: true
-    },
-    customers: [{
-        type: Schema.Types.ObjectId,
-        ref: 'customer'
-    }]
+    }
 });
 
 const Sporthall = mongoose.model('sporthall', SporthallSchema);
