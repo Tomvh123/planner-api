@@ -18,7 +18,7 @@ const StaffSchema = new Schema({
         type: String,
         required: true,
         unique: true
-    }
+    },
     job: {
         type: String,
         required: true
