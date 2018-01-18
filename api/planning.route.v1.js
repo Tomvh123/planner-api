@@ -16,9 +16,6 @@ routes.get('/planningen/:email', function(req, res) {
            if (plan.staff.email === email){
                planningsArray.push(plan);
            }
-           else {
-               console.log(plan.staff.email);
-           }
        });
        res.status(200).send(planningsArray);
    })
