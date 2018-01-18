@@ -19,34 +19,6 @@ const StaffSchema = new Schema({
         required: true,
         unique: true
     },
-    mondayAvailabilty: {
-        startTime: Date,
-        endTime: Date
-    },
-    tuesdayAvailabilty: {
-        startTime: Date,
-        endTime: Date
-    },
-    wednesdayAvailabilty: {
-        startTime: Date,
-        endTime: Date
-    },
-    thursdayAvailabilty: {
-        startTime: Date,
-        endTime: Date
-    },
-    fridayAvailabilty: {
-        startTime: Date,
-        endTime: Date
-    },
-    saturdayAvailabilty: {
-        startTime: Date,
-        endTime: Date
-    },
-    sundayAvailabilty: {
-        startTime: Date,
-        endTime: Date
-    },
     job: {
         type: String,
         required: true
